@@ -16,7 +16,7 @@ public class homeWork12 {
         driver = new ChromeDriver();
         driver.get("https://demowebshop.tricentis.com/");
     }
-    // test
+    //test
     @Test
     public void openBrowser(){
         System.out.println("Demo Web Shop was opened");
