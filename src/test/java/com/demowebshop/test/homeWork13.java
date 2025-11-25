@@ -1,4 +1,4 @@
-package com.rohach.test;
+package com.demowebshop.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

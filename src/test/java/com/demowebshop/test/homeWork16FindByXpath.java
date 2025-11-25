@@ -1,4 +1,4 @@
-package com.rohach.test;
+package com.demowebshop.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -52,7 +52,7 @@ public class homeWork16FindByXpath {
         //one step below
         driver.findElement(By.xpath("//*[@class='block block-category-navigation']/*[@class='title']"));
         //by position
-        driver.findElement(By.xpath("/*[@class='list']/li[2]"));
+        driver.findElement(By.xpath("//*[@class='list']/li[2]"));
         driver.findElement(By.xpath("//*[@class='block block-category-navigation']//li[last()]"));
         //siblings
         driver.findElement(By.xpath("//*[@class='topic-html-content-title']/following-sibling::*[@class='topic-html-content-body']"));

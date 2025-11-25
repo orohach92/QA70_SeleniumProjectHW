@@ -1,4 +1,4 @@
-package com.rohach.test;
+package com.demowebshop.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,7 +23,7 @@ public class homeWork12 {
     }
 
     //after test
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public void tearDown(){
         driver.close();
     }
