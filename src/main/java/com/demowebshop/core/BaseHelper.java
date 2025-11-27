@@ -1,11 +1,12 @@
 package com.demowebshop.core;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class BaseHelper {
@@ -32,13 +33,30 @@ public class BaseHelper {
     }
 
     public boolean isAlertPresent() {
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))
+        Alert alert = getWait(20)
                 .until(ExpectedConditions.alertIsPresent());
         if (alert == null) {
             return false;
         } else {
             return true;
         }
+    }
+
+    public WebDriverWait getWait(int seconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(seconds));
+    }
+
+    public String takeScreenshot(){
+
+        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File screenshot = new File("screenshots/screen-" + System.currentTimeMillis() + ".png");
+
+        try {
+            Files.copy(tmp,screenshot);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return screenshot.getAbsolutePath();
     }
 
     public void pause(int millis){

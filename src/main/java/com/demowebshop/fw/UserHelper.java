@@ -17,6 +17,7 @@ public class UserHelper extends BaseHelper {
 
     public void fillRegistrationForm(String firstName, String lastName, String password) {
         int i =(int)((System.currentTimeMillis()/1000)%3600);
+        String email = "rohach" + i + "@gmail.com";
         //click on Male gender button
         click(By.cssSelector("#gender-male"));
         //enter First name
@@ -24,11 +25,26 @@ public class UserHelper extends BaseHelper {
         //enter Last name
         type(By.cssSelector("#LastName"), lastName);
         //enter email
-        type(By.cssSelector("#Email"),"rohach" + i + "@gmail.com");
+        type(By.cssSelector("#Email"), email);
         //enter password
         type(By.cssSelector("#Password"), password);
         //confirm password
         type(By.cssSelector("#ConfirmPassword"), password);
+    }
+
+    public void fillRegistrationFormFromCsv(User user) {
+        //click on Male gender button
+        click(By.cssSelector("#gender-male"));
+        //enter First name
+        type(By.cssSelector("#FirstName"), user.getName());
+        //enter Last name
+        type(By.cssSelector("#LastName"), user.getLastname());
+        //enter email
+        type(By.cssSelector("#Email"), user.getEmail());
+        //enter password
+        type(By.cssSelector("#Password"), user.getPassword());
+        //confirm password
+        type(By.cssSelector("#ConfirmPassword"), user.getPassword());
     }
 
     public void clickOnRegisterLink() {
@@ -58,5 +74,9 @@ public class UserHelper extends BaseHelper {
 
     public boolean isSuccessRegistrationMassagePresent() {
         return isElementPresent(By.xpath("//*[@class='result']"));
+    }
+
+    public void clickOnLogoutButton() {
+        driver.findElement(By.cssSelector(".ico-logout")).click();
     }
 }
