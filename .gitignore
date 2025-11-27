@@ -1,5 +1,4 @@
 .gradle
-build/
 /gradle/
 
 ### IntelliJ IDEA ###
@@ -14,3 +13,6 @@ out/
 settings.gradle
 gradlew.bat
 \gradlew
+
+*.log
+*.png
