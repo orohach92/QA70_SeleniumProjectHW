@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression" verbose="1">
+    <test name="Positive">
+        <classes>
+            <class name="com.demowebshop.test.ItemTest">
+                <parameter name="email" value="rohach@gmail.com"></parameter>
+                <parameter name="password" value="s@X228u9HzX@sT"></parameter>
+            </class>
+        </classes>
+    </test>
+</suite>
